@@ -166,7 +166,9 @@ std::vector<std::string> App::renderTextures(const Glyphs& glyphs, const Config&
         }
 
         std::stringstream ss;
-        ss << config.output << "_" << std::setfill ('0') << std::setw(pageNameDigits) << page << ".png";
+        // remove paging since we don't need it (for now) so that the rest of the toolchain doesn't bork
+        // ss << config.output << "_" << std::setfill ('0') << std::setw(pageNameDigits) << page << ".png";
+        ss << config.output << ".png";
         const auto fileName = ss.str();
         fileNames.push_back(extractFileName(fileName));
 
